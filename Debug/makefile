@@ -47,7 +47,7 @@ all: sched_FreeRTOS_qemu.elf secondary-outputs
 sched_FreeRTOS_qemu.elf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GNU ARM Cross C Linker'
-	arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\hviei\eclipse-workspace\sched_FreeRTOS_qemu\ldscripts\STM32F407VGTx_FLASH_HVN.ld" -Xlinker --gc-sections -L"C:\Users\hviei\eclipse-workspace\sched_FreeRTOS_qemu\ldscripts" -Wl,-Map,"sched_FreeRTOS_qemu.map" --specs=nano.specs -o "sched_FreeRTOS_qemu.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -mcpu=cortex-m3 -mthumb -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "C:\Users\Lucas Aulas\eclipse-workspace\grr\sched_FreeRTOS_qemu\ldscripts\STM32F407VGTx_FLASH_HVN.ld" -Xlinker --gc-sections -L"C:\Users\Lucas Aulas\eclipse-workspace\grr\sched_FreeRTOS_qemu\ldscripts" -Wl,-Map,"sched_FreeRTOS_qemu.map" --specs=nano.specs -o "sched_FreeRTOS_qemu.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 

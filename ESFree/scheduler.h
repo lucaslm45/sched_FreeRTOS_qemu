@@ -52,7 +52,7 @@
 #define schedMAX_NUMBER_OF_PERIODIC_TASKS 10
 
 /* Set this define to 1 to enable aperiodic jobs. */
-#define schedUSE_APERIODIC_JOBS 0
+#define schedUSE_APERIODIC_JOBS 1
 /* Set this define to 1 to enable sporadic jobs. */
 #define schedUSE_SPORADIC_JOBS 0
 
