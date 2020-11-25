@@ -24,6 +24,9 @@ void vPrioInfo(void *pvParam){
 
 void vBlink(void *pvParam){
   trace_printf("%s\n", pcTaskGetName(NULL));
+  trace_printf("%s: priority: %d\n", pcTaskGetName(xHandle1), uxTaskPriorityGet(xHandle1));
+  trace_printf("%s: priority: %d\n", pcTaskGetName(xHandle2), uxTaskPriorityGet(xHandle2));
+  trace_printf("%s: priority: %d\n", pcTaskGetName(xHandle3), uxTaskPriorityGet(xHandle3));
   BSP_LED_Toggle((uint32_t)pvParam);
 } // vBlink
 
@@ -37,9 +40,9 @@ void main(void){
 
   vSchedulerInit();
 
-  vSchedulerPeriodicTaskCreate(vBlink, "Task1", configMINIMAL_STACK_SIZE, (void *)LED3, 1, &xHandle1, pdMS_TO_TICKS(010), pdMS_TO_TICKS(250), pdMS_TO_TICKS(001), pdMS_TO_TICKS(250));
-  vSchedulerPeriodicTaskCreate(vBlink, "Task2", configMINIMAL_STACK_SIZE, (void *)LED6, 1, &xHandle2, pdMS_TO_TICKS(260), pdMS_TO_TICKS(200), pdMS_TO_TICKS(001), pdMS_TO_TICKS(200));
-  vSchedulerPeriodicTaskCreate(vBlink, "Task3", configMINIMAL_STACK_SIZE, (void *)LED5, 1, &xHandle3, pdMS_TO_TICKS(135), pdMS_TO_TICKS(500), pdMS_TO_TICKS(001), pdMS_TO_TICKS(500));
+  vSchedulerPeriodicTaskCreate(vBlink, "Task1", configMINIMAL_STACK_SIZE, (void *)LED3, 1, &xHandle1, pdMS_TO_TICKS(000), pdMS_TO_TICKS(200), pdMS_TO_TICKS(5), pdMS_TO_TICKS(1));
+  vSchedulerPeriodicTaskCreate(vBlink, "Task2", configMINIMAL_STACK_SIZE, (void *)LED6, 1, &xHandle2, pdMS_TO_TICKS(150), pdMS_TO_TICKS(250), pdMS_TO_TICKS(5), pdMS_TO_TICKS(250));
+  vSchedulerPeriodicTaskCreate(vBlink, "Task3", configMINIMAL_STACK_SIZE, (void *)LED5, 1, &xHandle3, pdMS_TO_TICKS(200), pdMS_TO_TICKS(300), pdMS_TO_TICKS(5), pdMS_TO_TICKS(300));
 
   vSchedulerStart();
   while(1);

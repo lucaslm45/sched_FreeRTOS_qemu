@@ -92,7 +92,7 @@
 
 /* ESFree related definitions. */
 #define configNUM_THREAD_LOCAL_STORAGE_POINTERS 1
-#define configUSE_TICK_HOOK                     0
+#define configUSE_TICK_HOOK                     1
 #define configUSE_PREEMPTION                    1
 #define configUSE_TIME_SLICING                  0
 
